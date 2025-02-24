@@ -1,0 +1,41 @@
+
+
+1º - Download and install Python on your machine. I'm using version 3.11.4.
+
+	https://www.python.org/downloads/
+
+
+2º - Download and install Visual Studio Code.
+
+	https://code.visualstudio.com/download
+
+
+3º - Install the following extensions in VS Code:
+
+	- Code Runner
+	- Python
+	- Python Debuger
+	- Remote -SSH
+	- Rmote Explorer
+	- Remote Repositores
+	- Reload
+
+
+- VERY IMPORTANT! CREATE A VIRTUAL ENVIRONMENT TO INSTALL THE LIBRARIES!
+
+4º - Install the required packages by running the following command in the VS Code terminal (only do this if the option to install automatically doesn't appear).
+
+	Activate the virtual environment before installing requirements.txt: -> .venv\Scripts\Activate
+
+	pip install -r requirements.txt
+
+
+- COMANDOS PARA EXECUTAR OS BOTS -
+	
+	1 º -> pythonw .\Scraping.py     -> Esse comando é responsavél por ligar o Scraping
+	
+- PARAR OS BOTS EM EXECUÇAO -
+
+	Get-Process pythonw
+
+	Stop-Process -Id e o ID DO PROCESSO EX: Stop-Process -Id 15245
