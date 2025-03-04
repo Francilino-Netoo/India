@@ -1,29 +1,38 @@
-from requests import Session
-import telebot
-from urllib3.exceptions import InsecureRequestWarning
-from selenium import webdriver
-from selenium.webdriver.common.by import By
+import re
+import os
 import time
+import telebot
+import pandas as pd
+from kthread_sleep import sleep
+from seleniumbase import Driver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
+from a_selenium2df import get_df
 from db import TOKEN, USER_ID, message, count_falhas, cout_vela
+
 
 bot = telebot.TeleBot(TOKEN)
 user_id = USER_ID
 
-options = webdriver.ChromeOptions()
-#options.add_argument("--headless")
-options.add_argument("--disable-blink-features=AutomationControlled")
-options.add_argument("--log-level=3")
-options.add_argument("--no-sandbox")
-options.add_argument("--disable-dev-shm-usage")
-options.add_argument("--disable-extensions")
-options.add_argument("--disable-infobars")
-options.add_argument("window-size=1920x1080")
-options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.3")
-
-driver = webdriver.Chrome(options=options)
+driver = Driver(uc=True, headless=False) 
 
 driver.get('https://stake.games/casino/games/crash')
-time.sleep(1)
+sleep(1)
+
+def obter_dataframe(query='*'):
+    """Captura elementos da página e retorna como DataFrame"""
+    df = pd.DataFrame()
+    while df.empty:
+        df = get_df(
+            driver,
+            By,
+            WebDriverWait,
+            EC,
+            queryselector=query,
+            with_methods=True,
+        )
+    return df
 
 valores_capturados = set()
 cont = 0
@@ -41,12 +50,11 @@ while True:
                 valores_capturados.add(valor)
                 
                 try:
-                    # Remove pontos e troca a vírgula pelo ponto
+                    
                     numero = float(valor.replace('.', '').replace(',', '.'))
                     print(f"📌 Result: {numero}")
                     lista.append(numero)
                     
-                    # Mantém no máximo 'count_falhas' elementos
                     if len(lista) > count_falhas:
                         lista.pop(0)
                     

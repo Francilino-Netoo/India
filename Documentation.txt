@@ -29,13 +29,13 @@
 
 	pip install -r requirements.txt
 
+5º - Create a channel on Telegram and a bot on Telegram. After that, add the Bot as an administrator of your channel.
 
-- COMANDOS PARA EXECUTAR OS BOTS -
+
+6° - In the db.py script you can set the fault values ​​and change the messages.
+
+
+- COMMANDS TO RUN THE BOT -
 	
-	1 º -> pythonw .\Scraping.py     -> Esse comando é responsavél por ligar o Scraping
+	1 º -> python .\stake.py OR .\stake_01.py    -> This command is responsible for turning on the Bot
 	
-- PARAR OS BOTS EM EXECUÇAO -
-
-	Get-Process pythonw
-
-	Stop-Process -Id e o ID DO PROCESSO EX: Stop-Process -Id 15245
