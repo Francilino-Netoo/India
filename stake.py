@@ -41,12 +41,11 @@ while True:
                 valores_capturados.add(valor)
                 
                 try:
-                    # Remove pontos e troca a vírgula pelo ponto
+                    
                     numero = float(valor.replace('.', '').replace(',', '.'))
                     print(f"📌 Result: {numero}")
                     lista.append(numero)
                     
-                    # Mantém no máximo 'count_falhas' elementos
                     if len(lista) > count_falhas:
                         lista.pop(0)
                     

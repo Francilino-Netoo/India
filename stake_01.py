@@ -21,7 +21,6 @@ driver.get('https://stake.games/casino/games/crash')
 sleep(1)
 
 def obter_dataframe(query='*'):
-    """Captura elementos da página e retorna como DataFrame"""
     df = pd.DataFrame()
     while df.empty:
         df = get_df(
