@@ -1,5 +1,4 @@
 
-
 1º - Download and install Python on your machine. I'm using version 3.11.4.
 
 	https://www.python.org/downloads/
@@ -29,13 +28,12 @@
 
 	pip install -r requirements.txt
 
-5º - Create a channel on Telegram and a bot on Telegram. After that, add the Bot as an administrator of your channel.
-
 
 6° - In the db.py script you can set the fault values ​​and change the messages.
 
+- COMMANDS TO RUN -
+	
+	1 º -> python .\Scraping.py OR  
 
-- COMMANDS TO RUN THE BOT -
-	
-	1 º -> python .\stake.py OR .\stake_01.py    -> This command is responsible for turning on the Bot
-	
+
+Results change when 'count' changes.
